@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github</groupId>
+    <artifactId>lark-markdown</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>io.github.fvarrui</groupId>
+                <artifactId>javapackager</artifactId>
+                <version>1.7.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                        <configuration>
+                            <platform>windows</platform>
+                            <additionalResources>
+                                <additionalResource>src\main\resources\chrome</additionalResource>
+                                <additionalResource>src\main\resources\driver</additionalResource>
+                                <additionalResource>src\main\resources\config.properties</additionalResource>
+                                <additionalResource>src\main\resources\image</additionalResource>
+                                <additionalResource>src\main\resources\style</additionalResource>
+                                <additionalResource>src\main\resources\ui</additionalResource>
+                            </additionalResources>
+                            <winConfig>
+                                <icoFile>src\main\resources\image\icon.ico</icoFile>
+                                <generateSetup>true</generateSetup>
+                                <generateMsi>false</generateMsi>
+                                <generateMsm>false</generateMsm>
+                                <!-- setup generation properties -->
+                                <setupMode>askTheUser</setupMode>
+                                <setupLanguages>
+                                    <!--                                        <chinese>compiler:Languages\ChineseSimplified.isl</chinese>-->
+                                    <!--                                                          <english>compiler:Default.isl</english>-->
+                                    <!--                                                          <german>compiler:Languages\German.isl</german>-->
+
+                                </setupLanguages>
+                                <disableDirPage>false</disableDirPage>
+                                <disableProgramGroupPage>false</disableProgramGroupPage>
+                                <disableFinishedPage>false</disableFinishedPage>
+                                <disableRunAfterInstall>false</disableRunAfterInstall>
+                                <disableWelcomePage>false</disableWelcomePage>
+                                <!--                 创建桌面图标-->
+                                <createDesktopIconTask>true</createDesktopIconTask>
+                                <removeOldLibs>true</removeOldLibs>
+                            </winConfig>
+                            <!--启动类-->
+                            <mainClass>com.github.lark.markdown.Launcher</mainClass>
+                            <bundleJre>true</bundleJre>
+                            <copyDependencies>true</copyDependencies>
+                            <!--  JDK8需要指定jre路径 -->
+                            <!--                                <jrePath>D:\jdk1.8\jre</jrePath>-->
+                            <!-- 管理员启动-->
+                            <administratorRequired>true</administratorRequired>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+
+            <!--       开发时使用     -->
+<!--                        <resource>-->
+<!--                            <directory>src/main/resources</directory>-->
+<!--                        </resource>-->
+
+            <!--   打包exe时使用         -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>chrome/**</exclude>
+                    <exclude>driver/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hutool.version>5.3.3</hutool.version>
+        <javafx.version>17.0.6</javafx.version>
+        <log4j.version>2.17.2</log4j.version>
+        <selenium.version>3.141.59</selenium.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+    </dependencies>
+</project>

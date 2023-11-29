@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.lark.markdown.controller.SetController">
+   <children>
+      <Pane layoutX="70.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="waitTimeTextView" focusTraversable="false" layoutX="65.0" layoutY="10.0" prefHeight="30.0" prefWidth="65.0" promptText="10-100" />
+            <Label layoutY="14.0" text="缓冲时间">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="15.0" text="秒">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="70.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="rollIntervalTextView" focusTraversable="false" layoutX="65.0" layoutY="10.0" prefHeight="30.0" prefWidth="65.0" promptText="20-200" />
+            <Label layoutY="14.0" text="滚动间隔">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="14.0" text="毫秒">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="70.0" layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="302.0">
+         <children>
+            <Label layoutY="14.0" text="保存目录">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="selectFileButton" layoutX="65.0" layoutY="10.0" mnemonicParsing="false" onAction="#selectFileButtonClicked" prefHeight="28.0" prefWidth="70.0" text="选择目录" focusTraversable="false"/>
+         </children>
+      </Pane>
+      <Button fx:id="setSaveButton" layoutX="275.0" layoutY="250.0" mnemonicParsing="false" opacity="0.76" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #41a0ff;" text="保  存" textFill="WHITESMOKE"  onAction="#setSaveButtonClicked">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Label fx:id="fileLabel" layoutX="70.0" layoutY="182.0" prefHeight="18.0" prefWidth="293.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

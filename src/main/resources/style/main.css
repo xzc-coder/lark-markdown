@@ -1,0 +1,25 @@
+.red-bg {
+    -fx-background-color: #e81123;
+}
+
+.white-bg {
+    -fx-background-color: #ffffff;
+}
+
+.grey-bg {
+    -fx-background-color: #e5e5e5;
+}
+
+.right-top-box {
+    -fx-alignment: center;
+    -fx-pref-width: 50px;
+    -fx-pref-height: 30px;
+}
+
+.content-center {
+    -fx-alignment: CENTER;
+}
+
+.delete-bg {
+    -fx-background-color: #00000000
+}

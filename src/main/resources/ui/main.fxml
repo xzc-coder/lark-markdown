@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.lark.markdown.controller.MainController">
+    <children>
+        <Pane fx:id="topTitlePane" onMouseDragged="#paneMoveMouseDragged" onMouseReleased="#paneMoveMouseReleased" prefHeight="30.0" prefWidth="600.0" styleClass="white-bg" stylesheets="@../style/main.css">
+            <children>
+                <HBox fx:id="closeHbox" layoutX="550.0" onMouseClicked="#closeBoxMouseClicked" onMouseEntered="#closeBoxMouseEntered" onMouseExited="#closeBoxMouseExited" opacity="0.8" prefHeight="30.0" prefWidth="50.0" styleClass="right-top-box" stylesheets="@../style/main.css">
+                    <children>
+                        <ImageView fitHeight="25.0" fitWidth="20.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/close.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <HBox fx:id="minimizeHbox" layoutX="500.0" onMouseClicked="#minimizeBoxMouseClicked" onMouseEntered="#minimizeBoxMouseEntered" onMouseExited="#minimizeBoxMouseExited" opacity="0.8" prefHeight="30.0" prefWidth="50.0" styleClass="right-top-box" stylesheets="@../style/main.css">
+                    <children>
+                        <ImageView fitHeight="25.0" fitWidth="20.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/minimize.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <HBox fx:id="setHbox" layoutX="450.0" onMouseClicked="#setBoxMouseClicked" onMouseEntered="#setBoxMouseEntered" onMouseExited="#setBoxMouseExited" prefHeight="30.0" prefWidth="50.0" styleClass="right-top-box" stylesheets="@../style/main.css">
+                    <children>
+                        <ImageView fitHeight="25.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/set.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <HBox prefHeight="30.0" prefWidth="40.0" styleClass="right-top-box" stylesheets="@../style/main.css">
+                    <children>
+                        <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/icon.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </children>
+        </Pane>
+        <Pane layoutY="30.0" onMouseDragged="#paneMoveMouseDragged" onMouseReleased="#paneMoveMouseReleased" prefHeight="80.0" prefWidth="600.0">
+            <children>
+                <HBox layoutX="44.0" layoutY="20.0" prefHeight="50.0" prefWidth="88.0">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="179.0" text="文章URL">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox layoutX="140.0" layoutY="35.0" prefHeight="22.0" prefWidth="360.0">
+                    <children>
+                        <TextField fx:id="urlTextField" prefHeight="22.0" prefWidth="360.0" onKeyPressed="#urlTextFieldKeyPressed"/>
+                    </children>
+                </HBox>
+                <HBox layoutX="514.0" layoutY="30.0" prefHeight="20.0" prefWidth="60.0">
+                    <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#addButtonMouseClicked" prefHeight="20.0" prefWidth="60.0" text="添加">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </Pane>
+        <Pane layoutY="110.0" prefHeight="290.0" prefWidth="600.0">
+            <children>
+                <TableView fx:id="markdownUrlTableView" prefHeight="290.0" prefWidth="600.0" stylesheets="@../style/main.css">
+                    <placeholder>
+                        <Label text="暂无数据" />
+                    </placeholder>
+                    <columns>
+                        <TableColumn fx:id="tabColSerialNumber" prefWidth="50" resizable="false" sortable="false" styleClass="content-center" text="序号" />
+                        <TableColumn fx:id="tabColUrl" prefWidth="200" resizable="false" sortable="false" styleClass="content-center" text="url" />
+                        <TableColumn fx:id="tabColTitle" prefWidth="200" resizable="false" sortable="false" styleClass="content-center" text="标题" />
+                        <TableColumn fx:id="tabColStatus" prefWidth="75" resizable="false" sortable="false" styleClass="content-center" text="状态" />
+                        <TableColumn fx:id="tabColProgress" prefWidth="75" resizable="false" sortable="false" styleClass="content-center" text="进度" />
+<!--                        <TableColumn fx:id="tabColOperate" prefWidth="100" resizable="false" sortable="false" styleClass="content-center" text="操作" />-->
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane fx:id="bottomTitlePane" layoutY="400.0" prefHeight="50.0" prefWidth="600.0" styleClass="grey-bg" stylesheets="@../style/main.css">
+            <children>
+                <HBox layoutX="50" layoutY="3.0" prefHeight="44.0" prefWidth="550">
+                    <children>
+                        <ImageView fitHeight="43.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/GitHub.png" />
+                            </image>
+                        </ImageView>
+                        <TextField prefHeight="46.0" prefWidth="480" stylesheets="@../style/main.css" styleClass="delete-bg" text="https://github.com/xzc-coder/lark-markdown.git" editable="false">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                </HBox>
+            </children>
+        </Pane>
+    </children>
+</Pane>
